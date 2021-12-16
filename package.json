@@ -1,0 +1,61 @@
+{
+  "name": "sanity-plugin-groq-list",
+  "version": "1.0.0",
+  "description": "Take advantage of GROQ to show matching documents for quick edit",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "sanipack build",
+    "watch": "sanipack build --watch",
+    "prepublishOnly": "sanipack build && sanipack verify"
+  },
+  "repository": {},
+  "keywords": [
+    "sanity",
+    "sanity-plugin"
+  ],
+  "author": "Marius Djerv <mariusdjerv@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "codemirror": "^5.64.0",
+    "react-codemirror2": "^7.2.1",
+    "@sanity/ui": "^0.36.17",
+    "@sanity/icons": "^1.2.2",
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    "sanipack": "^2.1.0",
+    "prettier": "^2.5.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-sanity": "^5.1.0",
+    "eslint-plugin-react": "^7.27.1",
+    "@sanity/base": "2.23.1",
+    "prop-types": "^15.6.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "peerDependencies": {
+    "@sanity/base": "^2.21.0",
+    "react": "^16.9 || ^17",
+    "react-dom": "^16.9 || ^17",
+    "styled-components": "^5.2.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "sanipack/babel/eslint-parser",
+    "extends": [
+      "sanity",
+      "sanity/react",
+      "prettier"
+    ],
+    "ignorePatterns": [
+      "lib/**/"
+    ]
+  }
+}
