@@ -9,7 +9,11 @@
     "watch": "sanipack build --watch",
     "prepublishOnly": "sanipack build && sanipack verify"
   },
-  "repository": {},
+  "homepage": "https://github.com/MariusLeverte/sanity-plugin-groq-list#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:MariusLeverte/sanity-plugin-groq-list.git"
+  },
   "keywords": [
     "sanity",
     "sanity-plugin"
