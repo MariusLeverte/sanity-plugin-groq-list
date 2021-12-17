@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-groq-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Take advantage of GROQ to show matching documents for quick edit",
   "main": "lib/index.js",
   "scripts": {
