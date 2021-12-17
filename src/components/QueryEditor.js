@@ -1,5 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {UnControlled as BaseReactCodeMirror} from 'react-codemirror2'
+import 'codemirror/theme/material.css'
+require('codemirror/mode/javascript/javascript')
 
 const QueryEditor = ({query, handleChange}) => (
   <BaseReactCodeMirror
@@ -14,5 +17,14 @@ const QueryEditor = ({query, handleChange}) => (
     onChange={handleChange}
   />
 )
+
+QueryEditor.propTypes = {
+  query: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+}
+
+QueryEditor.defaultProps = {
+  query: '',
+}
 
 export default QueryEditor

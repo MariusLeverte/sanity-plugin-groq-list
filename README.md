@@ -14,7 +14,7 @@ The plugin can be configured through `<your-studio-folder>/config/groq-list.json
 
 ```json
 {
-  "add-config": "here"
+  "title": "TAB title"
 }
 ```
 

@@ -67,14 +67,17 @@ const View = () => {
       type: document._type,
     })
 
-  const fetchGroqDocuments = useCallback(() => {
+  const fetchGroqDocuments = () => {
     client.fetch('*[_type == "groq-list"]').then(handleReceiveList)
-  }, [handleReceiveList])
+  }
 
   const runQuery = async (query) => {
     const result = await client.fetch(query)
 
-    setQueryDocuments(Array.isArray(result) ? result : [result])
+    const resultArray = Array.isArray(result) ? result : [result]
+    const filterArray = resultArray.filter(({_type}) => _type !== 'groq-list')
+
+    setQueryDocuments(filterArray)
   }
   const saveQuery = useCallback(
     async (title) => {
@@ -86,18 +89,18 @@ const View = () => {
           query: documentQuery,
         }
         if (doc._id) await client.createOrReplace(doc)
-        else
-          await client.create(doc).then(async (res) => {
-            await router.navigate({selectedDocumentId: res._id})
-            await setCurrentQueryDocumentId(res._id)
-          })
+        else {
+          const result = await client.create(doc)
+          await router.navigate({selectedDocumentId: result._id})
+          await setCurrentQueryDocumentId(result._id)
+        }
 
         await fetchGroqDocuments()
       } catch (e) {
         console.error(e)
       }
     },
-    [documentQuery, currentQueryDocumentId, fetchGroqDocuments]
+    [documentQuery, currentQueryDocumentId, handleReceiveList]
   )
   const deleteQuery = useCallback(async () => {
     try {

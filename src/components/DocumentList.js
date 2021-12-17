@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {Card, Flex, Box, Spinner, Text, Stack} from '@sanity/ui'
 
 const DocumentList = ({children}) => {
@@ -20,6 +21,14 @@ const DocumentList = ({children}) => {
       <Stack space={1}>{children}</Stack>
     </Card>
   )
+}
+
+DocumentList.defaultProps = {
+  children: null,
+}
+
+DocumentList.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
 export default DocumentList

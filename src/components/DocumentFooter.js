@@ -1,15 +1,18 @@
 import {PublishIcon} from '@sanity/icons'
 import {Box, Button, Card, Flex, Inline, Stack, Text, TextInput, Tooltip} from '@sanity/ui'
 import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 
 const DocumentFooter = ({query, onTestRun, results, onSaveQuery, onDeleteQuery, document}) => {
   const [documentTitle, setDocumentTitle] = useState('')
 
   const hasResults = results && results?.length !== 0
+  const hasQuery = query
   const resultsHasIds = hasResults && results.every(({_id}) => _id)
 
   const canSave = () => {
     if (!hasResults) return false
+    if (!hasQuery) return false
     return resultsHasIds
   }
 
@@ -75,6 +78,23 @@ const DocumentFooter = ({query, onTestRun, results, onSaveQuery, onDeleteQuery, 
       </Flex>
     </Card>
   )
+}
+
+DocumentFooter.defaultProps = {
+  query: null,
+  results: null,
+  document: null,
+}
+
+DocumentFooter.propTypes = {
+  query: PropTypes.string,
+  onTestRun: PropTypes.func.isRequired,
+  results: PropTypes.arrayOf(PropTypes.object),
+  onSaveQuery: PropTypes.func.isRequired,
+  onDeleteQuery: PropTypes.func.isRequired,
+  document: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+  }),
 }
 
 export default DocumentFooter
