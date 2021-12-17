@@ -1,6 +1,6 @@
 # Sanity Plugin GROQ List
 
-Take advantage of GROQ to render lists of documents for quick edit, stright in the Sanity studio without needing to deploy anything. 
+Take advantage of GROQ to render lists of documents for quick edit, straight in the Sanity studio without needing to deploy anything. 
 
 ![GROQ List in Studio](https://cdn.sanity.io/images/wt6didsd/production/fcbe105b10a5460f96f524849617c0d0f146d86b-2870x1348.png?h=650)
 
