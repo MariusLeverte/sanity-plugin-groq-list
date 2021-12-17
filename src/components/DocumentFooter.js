@@ -1,4 +1,4 @@
-import {PublishIcon} from '@sanity/icons'
+import {PublishIcon, TrashIcon} from '@sanity/icons'
 import {Box, Button, Card, Flex, Inline, Stack, Text, TextInput, Tooltip} from '@sanity/ui'
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
@@ -36,14 +36,15 @@ const DocumentFooter = ({query, onTestRun, results, onSaveQuery, onDeleteQuery, 
               <Button
                 fontSize={2}
                 text="Test run"
-                tone="primary"
+                mode="ghost"
+                tone="brand"
                 onClick={() => onTestRun(query)}
               />
             )}
             {document && (
               <Button
                 fontSize={2}
-                icon={PublishIcon}
+                icon={TrashIcon}
                 text="Delete"
                 tone="critical"
                 onClick={onDeleteQuery}
